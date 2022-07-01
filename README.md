@@ -41,6 +41,8 @@ Example result looks like this
 2022-06-28T21:02:01,getfileinfo,gfolyrep/bdnjr004x03h5.nam.nsroot.net@CTIP.NAM.NSROOT.NET,155433
 
 [svenkataramanasam@casefiles 883131]$ python3 script.py | sort -t, -k1 | awk -F, '{print $2}' | sort | uniq
+
+
 *
 append
 cancelDelegationToken
