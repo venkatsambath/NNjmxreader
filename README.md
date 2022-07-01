@@ -99,5 +99,5 @@ python3 script.py | sort -t, -k1 | grep rename
 To list top user for contentSummary rpc type on a minute window
 python3 script.py | sort -t, -k1 | grep contentSummary
 
-
-
+Just download the file and change
+directory = '<path to your jmx dump folder>' in the script
