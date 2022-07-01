@@ -1,6 +1,9 @@
 # NNjmxreader
 
-This script reads through a directory containing jmx files. Reads each jmx file and finds TopUserOpCounts bean and inside 1 min window, it lists topusers for each type of rpc in 1 min window.
+This script reads through a directory containing jmx files. Reads each jmx file and finds TopUserOpCounts bean and inside 1 min window, it lists topusers for each type of rpc in 1 min window
+
+First user in the list will be the top user
+https://github.infra.cloudera.com/CDH/hadoop/blob/5bd7b592e5fbe4d448fd127c15d29f3121b8a833/hadoop-hdfs-project/hadoop-hdfs/src/main/java/org/apache/hadoop/hdfs/server/namenode/top/window/RollingWindowManager.java#L203-L208
 
 Lets say you want to find top users of getfileinfo rpc in each minute, then you can run the command like below
 
@@ -41,8 +44,6 @@ Example result looks like this
 2022-06-28T21:02:01,getfileinfo,gfolyrep/bdnjr004x03h5.nam.nsroot.net@CTIP.NAM.NSROOT.NET,155433
 
 [svenkataramanasam@casefiles 883131]$ python3 script.py | sort -t, -k1 | awk -F, '{print $2}' | sort | uniq
-
-
 *
 append
 cancelDelegationToken
@@ -75,4 +76,28 @@ setPermission
 setReplication
 setStoragePolicy
 setTimes
+
+Handy commands:
+To list type of RPCs triggered across JMX files:
+python3 script.py | sort -t, -k1 | awk -F, '{print $2}' | sort | uniq
+
+To list top user for each rpc type on a minute window
+python3 script.py | sort -t, -k1
+
+To list top user for getfileinfo rpc type on a minute window
+python3 script.py | sort -t, -k1 | grep getfileinfo
+
+To list top user for listStatus rpc type on a minute window
+python3 script.py | sort -t, -k1 | grep listStatus
+
+To list top user for listStatus rpc type on a minute window
+python3 script.py | sort -t, -k1 | grep listStatus
+
+To list top user for rename rpc type on a minute window
+python3 script.py | sort -t, -k1 | grep rename
+
+To list top user for contentSummary rpc type on a minute window
+python3 script.py | sort -t, -k1 | grep contentSummary
+
+
 
