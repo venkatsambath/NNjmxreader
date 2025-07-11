@@ -73,7 +73,7 @@ for filename in os.listdir(directory):
                               RpcQueueTimeAvgTime, GcTimeMillisParNew,ThreadsBlocked,ThreadsWaiting,ThreadsTimedWaiting,GcTimeMillisConcurrentMarkSweep,Rename2AvgTime,RenameAvgTime,DeleteAvgTime,CreateAvgTime,GetFileInfoAvgTime,GetAclStatusAvgTime,GetListingAvgTime,GetContentSummaryAvgTime,GetBlockLocationsAvgTime,CompleteAvgTime,ListCachePoolsAvgTime,ListCacheDirectivesAvgTime,FsyncAvgTime,GetDatanodeReportAvgTime]
 #            row = [timestamp, GetGroupsNumOps, GetGroupsAvgTime, CallQueueLength,
 #                   RpcProcessingTimeAvgTime, RpcQueueTimeAvgTime, GcTimeMillisParNew,ThreadsBlocked,ThreadsWaiting,ThreadsTimedWaiting,GcTimeMillisConcurrentMarkSweep]
-            if all(x != -1 for x in row[1:]):  # Exclude timestamp from the check
+            if all(x != -1 for x in row[1:]):  # Exclude timestamp from the check hi
                data.append(row)
                print("Included:", row)
             else:
